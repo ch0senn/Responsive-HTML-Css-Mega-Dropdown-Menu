@@ -3,10 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   </head>
   <body>
     <div class="container-body">
+      <div class="mobile-navbar" hidden>
+        <button style="position:fixed; right:0;" onclick="close_menu()" type="button" name="button"> <i class="fas fa-times fa-fw fa-2x"></i> </button>
+        <ul>
+          <li><a class="new-products" href="#">Yeni Ürünler</a></li>
+          <li id="mobile"><a class="menu-item" href="#">Yedek Parçalar</a><i class="fas fa-angle-right"></i></li>
+          <li id="mobile"><a class="menu-item" href="#">Aksesuarlar</a><i class="fas fa-angle-right"></i></li>
+          <li id="mobile"><a class="menu-item" href="#">Ses Sistemleri</a><i class="fas fa-angle-right"></i></li>
+          <li id="mobile"><a class="menu-item" href="#">Şarj Aletleri</a><i class="fas fa-angle-right"></i></li>
+          <li id="mobile"><a class="menu-item" href="#">Kablolar</a><i class="fas fa-angle-right"></i></li>
+          <li id="mobile"><a class="menu-item" href="#">Universal Ürünler</a><i class="fas fa-angle-right"></i></li>
+          <li id="mobile"><a class="menu-item" href="#">Tamir Malzemeleri</a><i class="fas fa-angle-right"></i></li>
+          <li id="mobile"><a class="menu-item" href="#">Giyilebilir Aksesuarlar</a><i class="fas fa-angle-right"></i></li>
+        </ul>
+      </div>
+
       <div class="navbar">
         <a class="new-products" href="#">Yeni Ürünler</a>
         <a class="menu-item" href="#">Yedek Parçalar</a>
@@ -116,7 +133,35 @@
             </div>
           </div>
         </div>
+        <div id="menu-bar" style="position:absolute; margin-left:95%;" class="menu-icon">
+          <i style="font-size:25px; padding-top: 5px;" class="fas fa-ellipsis-v fa-fw"></i>
+        </div>
       </div>
     </div>
+
+    <script>
+      $(document).ready(function(){
+        if($( window ).width() < 600){
+          $("#menu-bar").show();
+        }else{
+          $("#menu-bar").hide();
+        }
+      });
+
+      $( window ).resize(function() {
+        if($( window ).width() < 600){
+          $("#menu-bar").show();
+        }else{
+          $("#menu-bar").hide();
+        }
+      });
+
+      $("#menu-bar").click(function(){
+        $(".mobile-navbar").fadeIn(0);
+      });
+      function close_menu(){
+        $(".mobile-navbar").fadeOut(0);
+      }
+    </script>
   </body>
 </html>
